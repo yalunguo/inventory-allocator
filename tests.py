@@ -80,18 +80,18 @@ class InventoryAllocatorTest(unittest.TestCase):
 
 		self.assertEqual(inventory_allocator.get_inventory_allocator(order, warehouses), expected_result)
 
-		# test when inventory in warehouse has 0 count items
-		def test_warehouse_exists_0_count(self):
-			inventory_allocator = InventoryAllocator()
+	# test when inventory in warehouse has 0 count items
+	def test_warehouse_exists_0_count(self):
+		inventory_allocator = InventoryAllocator()
 
-			order = {'apple': 0, 'banana': 5}
-			warehouses = [
-				{'name': 'owd', 'inventory': {'apple': 5,'banana': 0}},
-				{'name': 'dm', 'inventory': {'banana': 5}}
-			]
-			expected_result = [{'dm': {'banana': 5}}]
+		order = {'apple': 0, 'banana': 5}
+		warehouses = [
+			{'name': 'owd', 'inventory': {'apple': 5,'banana': 0}},
+			{'name': 'dm', 'inventory': {'banana': 5}}
+		]
+		expected_result = [{'dm': {'banana': 5}}]
 
-			self.assertEqual(inventory_allocator.get_inventory_allocator(order, warehouses), expected_result)
+		self.assertEqual(inventory_allocator.get_inventory_allocator(order, warehouses), expected_result)
 
 	# test when order has an item that the inventory does not have
 	def test_no_item_match(self):
