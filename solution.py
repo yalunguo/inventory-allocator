@@ -11,7 +11,7 @@ class InventoryAllocator:
                 # when item can be shipped from warehouse
                 if item in warehouse['inventory'] and warehouse['inventory'][item]>0:
                     allocation[item] = min(quantity, warehouse['inventory'][item])
-                    order[item] -= min(quantity, warehouse['inventory'][item])  # update left amounts needed
+                    order[item] -= min(quantity, warehouse['inventory'][item])  # update left quanties needed
             if allocation:
                 ans.append({warehouse['name']: allocation})
 
